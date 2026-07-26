@@ -3,7 +3,7 @@ import plotly.express as px
 import streamlit as st
 
 from lib.charts import CLUB_COLORS, CLUB_LOGOS, CLUB_ORDER, SECONDARY_SEQUENCE, SINGLE_SERIES_COLOR, fold_long_tail
-from lib.data import data_state, load_corpus
+from lib.data import load_corpus
 from lib.filters import sidebar_filters
 from lib.format import format_percentage, format_thousands
 from lib.i18n import t
@@ -19,15 +19,13 @@ with st.container(horizontal=True, gap="medium"):
             st.image(CLUB_LOGOS[club], width=24)
             st.markdown(f":{CLUB_MARKDOWN_COLOR[club]}[**{club}**]")
 
-state = data_state()
 try:
     corpus = load_corpus()
 except FileNotFoundError:
     st.error(t("dashboard.error_missing_corpus"), icon=":material/error:")
     st.stop()
 
-if not state.multiclass_corpus:
-    st.warning(t("dashboard.warning_rules"), icon=":material/info:")
+st.info(t("dashboard.warning_rules"), icon=":material/info:")
 
 df_filtered = sidebar_filters(corpus)
 

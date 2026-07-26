@@ -1,0 +1,7 @@
+﻿doc_id,titulo,real,previsto,tipo_exemplo,notas,prob_relevante,erro_tipo
+f5609987b85bf647,Sevilha contrata Marcos Acuña ao Sporting | Futebol nacional | PÚBLICO,0,1,hard_negative,,0.6608544075343402,Falso Positivo (Deveria ser 0?)
+278f58748ea7d67e,V. Guimarães pediu a insolvência da Sporting SAD | Futebol nacional | PÚBLICO,0,1,hard_negative,,0.6437928547854825,Falso Positivo (Deveria ser 0?)
+582a3307ceef3cb3,Benfica gastou quase sete milhões de euros com Caio Lucas e Cádiz | Futebol | PÚBLICO,0,1,hard_negative,,0.5304949067492067,Falso Positivo (Deveria ser 0?)
+4882ad710b7cd261,"Ex-assessor da Benfica SAD, Paulo Gonçalves, representou mesmo Luquinhas | Futebol | PÚBLICO",0,1,hard_negative,,0.5141216468373005,Falso Positivo (Deveria ser 0?)
+177b9950804269d9,"Sporting fecha exercício 2019/20 com 12,5 milhões de lucro e consegue volume de negócios recorde de ",1,0,positive,,0.41654681452115405,Falso Negativo (Deveria ser 1?)
+e017d6dd60eee78c,CMVM está há 3 meses a questionar Benfica sobre OPA – Observador,1,0,positive,,0.4605635601054578,Falso Negativo (Deveria ser 1?)

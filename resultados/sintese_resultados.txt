@@ -1,4 +1,4 @@
-Q1: Sporting apresentou o maior número de eventos classificados (805), no conjunto analisado.
-O tipo mais frequente foi bond_issuance (1403 ocorrências notícia–clube).
-Q2: o maior número anual de eventos únicos ocorreu em 2017 (540). Esta concentração é descritiva e não implica causalidade.
-Q3: Sporting teve a maior cobertura arquivada (1458 notícias únicas). A razão entre a maior e a menor cobertura foi 2.15, indicando que as comparações brutas podem ser afetadas por disponibilidade desigual de fontes.
+Q1: FC Porto apresentou o maior número de documentos classificados (5), no conjunto analisado.
+O tipo mais frequente foi capital_market_debt (13 ocorrências documento–clube).
+Q2: o maior número anual de documentos únicos ocorreu em 2019 (6). Esta concentração é descritiva e não implica causalidade.
+Q3: Benfica teve a maior cobertura arquivada (281 notícias únicas). A razão entre a maior e a menor cobertura foi 2.20, indicando que as comparações brutas podem ser afetadas por disponibilidade desigual de fontes.

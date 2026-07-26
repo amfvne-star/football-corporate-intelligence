@@ -1,9 +1,10 @@
 """Loading and caching of every artifact produced by the notebook.
 
-Each artifact is optional: pages check `.empty` / `is None` before using it,
-so the app works with only `corpus_classificado.csv` and automatically gets
-richer as more pipeline outputs (notebook sections 14 and 15) are copied
-into the project root.
+The `resultados/` folder and the relevance model are optional: pages check
+`.empty` / `is None` before using them, so the app works with only
+`corpus_classificado.csv` present and gets richer as the rest of the
+notebook's outputs (section 10's `resultados/` folder, `modelo_relevancia.joblib`)
+are copied into the project root.
 """
 
 from __future__ import annotations
@@ -20,14 +21,7 @@ from lib.format import extract_clubs, normalize_boolean
 ROOT = Path(__file__).resolve().parent.parent
 
 CORPUS_BASE_FILE = ROOT / "corpus_classificado.csv"
-CORPUS_EVENTS_FILE = ROOT / "corpus_classificado_eventos.csv"
-DOCUMENTARY_BASE_FILE = ROOT / "base_documental_final.csv"
-PDFS_INDEX_FILE = ROOT / "pdfs_indice.csv"
-EXTRACTIONS_FILE = ROOT / "extracoes_financeiras_preliminares.csv"
-DOC_CANDIDATES_FILE = ROOT / "candidatos_documentais.csv"
-DOC_VALIDATION_FILE = ROOT / "validacao_documental.csv"
 RELEVANCE_MODEL_FILE = ROOT / "modelo_relevancia.joblib"
-EVENT_MODEL_FILE = ROOT / "modelo_tipo_evento.joblib"
 RESULTS_FOLDER = ROOT / "resultados"
 
 
@@ -35,8 +29,6 @@ RESULTS_FOLDER = ROOT / "resultados"
 class DataState:
     """Summarizes which optional artifacts were found, to drive UI warnings."""
 
-    multiclass_corpus: bool
-    documentary_layer: bool
     trained_models: bool
     research_results: bool
 
@@ -52,33 +44,17 @@ def _optional_csv(path: Path) -> pd.DataFrame:
 
 @st.cache_data(show_spinner="Loading the corpus...")
 def load_corpus() -> pd.DataFrame:
-    """Classified corpus. Uses the version with the model-predicted event
-    type (notebook section 14) when available; otherwise falls back to the
-    binary-classification version (section 13), using the pre-annotation
-    rules as an approximation of the event type."""
+    """Classified corpus. The event category (`tipo_evento_previsto`) is
+    rule-based (regex over the relevant documents, notebook section 8) —
+    there is no trained multiclass classifier in this version of the
+    project, so there is no associated confidence score."""
 
-    if CORPUS_EVENTS_FILE.exists():
-        df = pd.read_csv(CORPUS_EVENTS_FILE, low_memory=False)
-        df["_event_type_source"] = "model"
-    elif CORPUS_BASE_FILE.exists():
-        df = pd.read_csv(CORPUS_BASE_FILE, low_memory=False)
-        df["_event_type_source"] = "rules"
-    else:
+    if not CORPUS_BASE_FILE.exists():
         raise FileNotFoundError(
-            "Neither corpus_classificado.csv nor corpus_classificado_eventos.csv "
-            "was found in the project root."
+            "corpus_classificado.csv was not found in the project root."
         )
-
-    if "tipo_evento_modelo" in df.columns:
-        df["event_type_final"] = df["tipo_evento_modelo"]
-        df["event_type_confidence"] = pd.to_numeric(
-            df.get("prob_tipo_evento"), errors="coerce"
-        )
-    else:
-        df["event_type_final"] = df.get("tipo_evento_sugerido")
-        df["event_type_confidence"] = pd.to_numeric(
-            df.get("confianca_sugestao"), errors="coerce"
-        )
+    df = pd.read_csv(CORPUS_BASE_FILE, low_memory=False)
+    df["event_type_final"] = df.get("tipo_evento_previsto")
 
     # NOTE: the human-readable event label is intentionally NOT computed
     # here. This DataFrame is cached with @st.cache_data independently of
@@ -110,33 +86,6 @@ def load_corpus() -> pd.DataFrame:
 
 
 @st.cache_data
-def load_documentary_base() -> pd.DataFrame:
-    return _optional_csv(DOCUMENTARY_BASE_FILE)
-
-
-@st.cache_data
-def load_pdfs_index() -> pd.DataFrame:
-    return _optional_csv(PDFS_INDEX_FILE)
-
-
-@st.cache_data
-def load_financial_extractions() -> pd.DataFrame:
-    return _optional_csv(EXTRACTIONS_FILE)
-
-
-@st.cache_data(show_spinner="Loading candidate news↔document matches...")
-def load_documentary_candidates() -> pd.DataFrame:
-    """Candidate news-to-PDF matches (section 15.6/15.7). Prefers
-    `candidatos_documentais.csv`; falls back to `validacao_documental.csv`
-    (the same rows, with empty columns added for manual validation) since
-    that's the file annotators actually work from and may be the only one
-    copied over."""
-    if DOC_CANDIDATES_FILE.exists():
-        return _optional_csv(DOC_CANDIDATES_FILE)
-    return _optional_csv(DOC_VALIDATION_FILE)
-
-
-@st.cache_data
 def load_result(file_name: str) -> pd.DataFrame:
     return _optional_csv(RESULTS_FOLDER / file_name)
 
@@ -156,17 +105,8 @@ def load_relevance_model():
     return joblib.load(RELEVANCE_MODEL_FILE)
 
 
-@st.cache_resource(show_spinner="Loading the event-type classifier...")
-def load_event_model():
-    if not EVENT_MODEL_FILE.exists():
-        return None
-    return joblib.load(EVENT_MODEL_FILE)
-
-
 def data_state() -> DataState:
     return DataState(
-        multiclass_corpus=CORPUS_EVENTS_FILE.exists(),
-        documentary_layer=DOCUMENTARY_BASE_FILE.exists() or DOC_CANDIDATES_FILE.exists() or DOC_VALIDATION_FILE.exists(),
-        trained_models=RELEVANCE_MODEL_FILE.exists() and EVENT_MODEL_FILE.exists(),
+        trained_models=RELEVANCE_MODEL_FILE.exists(),
         research_results=RESULTS_FOLDER.exists() and any(RESULTS_FOLDER.iterdir()),
     )

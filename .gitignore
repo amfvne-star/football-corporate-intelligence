@@ -5,11 +5,4 @@ _test_*.py
 .agents/
 .claude/
 
-# Superseded by corpus_classificado_eventos.csv (kept locally for reference only)
-corpus_classificado.csv
-
-# Full candidate-match file (212MB) — candidatos_documentais.csv (rank==1 subset,
-# generated from this one) is what's actually deployed; keep the full file local-only
-validacao_documental.csv
-
 .streamlit/secrets.toml

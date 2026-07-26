@@ -28,7 +28,6 @@ STRINGS: dict[str, dict[str, str]] = {
     "nav.research_questions": {"en": "Research questions", "pt": "Perguntas de investigação"},
     "nav.events": {"en": "Event explorer", "pt": "Explorador de eventos"},
     "nav.nlp_lab": {"en": "NLP lab", "pt": "Laboratório de NLP"},
-    "nav.documentary_layer": {"en": "Documentary layer (CMVM)", "pt": "Camada documental (CMVM)"},
     "nav.data_export": {"en": "Data & export", "pt": "Dados e exportação"},
     "nav.methodology": {"en": "Methodology", "pt": "Metodologia"},
 
@@ -44,8 +43,8 @@ STRINGS: dict[str, dict[str, str]] = {
     "filters.min_probability": {"en": "Minimum relevance probability", "pt": "Probabilidade mínima de relevância"},
     "filters.search": {"en": "Search in title or text", "pt": "Pesquisar no título ou texto"},
     "filters.search_placeholder": {
-        "en": "e.g. bond issuance, bank financing...",
-        "pt": "ex.: emissão de obrigações, financiamento bancário...",
+        "en": "e.g. bond issuance, bank financing, capital increase...",
+        "pt": "ex.: emissão de obrigações, financiamento bancário, aumento de capital...",
     },
 
     # -- app_pages/dashboard.py ------------------------------------------
@@ -55,8 +54,8 @@ STRINGS: dict[str, dict[str, str]] = {
         "pt": "Eventos de financiamento corporativo identificados em notícias e documentos sobre Benfica SAD, FC Porto SAD e Sporting SAD.",
     },
     "dashboard.warning_rules": {
-        "en": "Showing the rule-based pre-annotated event type (`tipo_evento_sugerido`). Copy `corpus_classificado_eventos.csv` into the project root to use the trained multiclass classifier (notebook section 14).",
-        "pt": "A mostrar o tipo de evento pré-anotado por regras (`tipo_evento_sugerido`). Copia `corpus_classificado_eventos.csv` para a raiz do projeto para usar o classificador multiclasse treinado (secção 14 do notebook).",
+        "en": "The event category (`tipo_evento_previsto`) is assigned by lexical rules, not a trained classifier — see the Methodology page for details.",
+        "pt": "A categoria do evento (`tipo_evento_previsto`) é atribuída por regras lexicais, não por um classificador treinado — ver a página Metodologia para mais detalhes.",
     },
     "dashboard.empty": {"en": "No records match the selected filters.", "pt": "Não existem registos para os filtros selecionados."},
     "dashboard.metric_documents": {"en": "Documents", "pt": "Documentos"},
@@ -89,12 +88,12 @@ STRINGS: dict[str, dict[str, str]] = {
         "pt": "Sem clubes identificados para este conjunto de filtros.",
     },
     "dashboard.see_research_questions": {
-        "en": "Looking for the full breakdown by event sub-type, time, and coverage bias? See the \"Research questions\" page.",
-        "pt": "Procuras a distribuição completa por subtipo de evento, tempo e viés de cobertura? Ver a página \"Perguntas de investigação\".",
+        "en": "Looking for the full breakdown by event category, time, and coverage bias? See the \"Research questions\" page.",
+        "pt": "Procuras a distribuição completa por categoria de evento, tempo e viés de cobertura? Ver a página \"Perguntas de investigação\".",
     },
     "dashboard.error_missing_corpus": {
-        "en": "Neither corpus_classificado.csv nor corpus_classificado_eventos.csv was found in the project root.",
-        "pt": "Não foi encontrado corpus_classificado.csv nem corpus_classificado_eventos.csv na raiz do projeto.",
+        "en": "corpus_classificado.csv was not found in the project root.",
+        "pt": "Não foi encontrado corpus_classificado.csv na raiz do projeto.",
     },
 
     # -- app_pages/research_questions.py ----------------------------------
@@ -121,10 +120,10 @@ STRINGS: dict[str, dict[str, str]] = {
         "pt": "Q1 · Quantos eventos de financiamento por clube, e como se distribuem pelos subtipos?",
     },
     "rq.q1_body": {
-        "en": "How many financing-related events did each club generate over the period, and how are they distributed across the four sub-types (**bond issuance**, **bank financing**, **capital increase**, **CMVM / regulatory disclosure**)?",
-        "pt": "Quantos eventos relacionados com financiamento gerou cada clube ao longo do período, e como se distribuem pelos quatro subtipos (**emissão de obrigações**, **financiamento bancário**, **aumento de capital**, **divulgação regulatória à CMVM**)?",
+        "en": "How many financing-related documents did each club generate over the period, and how are they distributed across the three rule-based categories (**capital-market debt**, **bank & debt financing**, **capital increase**)?",
+        "pt": "Quantos documentos relacionados com financiamento gerou cada clube ao longo do período, e como se distribuem pelas três categorias baseadas em regras (**dívida em mercado de capitais**, **financiamento bancário e dívida**, **aumento de capital**)?",
     },
-    "rq.q1_missing": {"en": "`q1_eventos_por_clube_tipo.csv` not found.", "pt": "`q1_eventos_por_clube_tipo.csv` não encontrado."},
+    "rq.q1_missing": {"en": "`q1_documentos_por_clube_categoria.csv` not found.", "pt": "`q1_documentos_por_clube_categoria.csv` não encontrado."},
     "rq.axis_num_events": {"en": "Number of events", "pt": "Número de eventos"},
     "rq.legend_event_subtype": {"en": "Event sub-type", "pt": "Subtipo de evento"},
     "rq.q2_header": {
@@ -135,8 +134,8 @@ STRINGS: dict[str, dict[str, str]] = {
         "en": "Are there spikes tied to specific seasons, transfer windows, or known crisis periods (e.g. post-2008, the COVID era)?",
         "pt": "Existem picos associados a épocas específicas, janelas de transferências, ou períodos de crise conhecidos (ex.: pós-2008, era COVID)?",
     },
-    "rq.q2_missing_club": {"en": "`q2_eventos_por_ano_clube.csv` not found.", "pt": "`q2_eventos_por_ano_clube.csv` não encontrado."},
-    "rq.q2_missing_type": {"en": "`q2_eventos_por_ano_tipo.csv` not found.", "pt": "`q2_eventos_por_ano_tipo.csv` não encontrado."},
+    "rq.q2_missing_club": {"en": "`q2_documentos_por_ano_clube.csv` not found.", "pt": "`q2_documentos_por_ano_clube.csv` não encontrado."},
+    "rq.q2_missing_type": {"en": "`q2_documentos_por_ano_categoria.csv` not found.", "pt": "`q2_documentos_por_ano_categoria.csv` não encontrado."},
     "rq.axis_year": {"en": "Year", "pt": "Ano"},
     "rq.legend_club": {"en": "Club", "pt": "Clube"},
     "rq.q2_caption": {
@@ -156,8 +155,8 @@ STRINGS: dict[str, dict[str, str]] = {
     "rq.legend_source": {"en": "Source", "pt": "Fonte"},
     "rq.models_header": {"en": "Classifier quality", "pt": "Qualidade dos classificadores"},
     "rq.models_missing": {
-        "en": "`resumo_modelos.csv` not found — run notebook section 17.6.",
-        "pt": "`resumo_modelos.csv` não encontrado — corre a secção 17.6 do notebook.",
+        "en": "`resumo_modelos.csv` not found — run notebook section 10.6.",
+        "pt": "`resumo_modelos.csv` não encontrado — corre a secção 10.6 do notebook.",
     },
     "rq.col_accuracy": {"en": "Accuracy", "pt": "Exatidão"},
     "rq.col_precision": {"en": "Precision", "pt": "Precisão"},
@@ -188,18 +187,17 @@ STRINGS: dict[str, dict[str, str]] = {
     "rq.col_documentation_rate": {"en": "Documentation rate (%)", "pt": "Taxa de documentação (%)"},
     "rq.why_nlp_header": {"en": "Is NLP the right approach here?", "pt": "O NLP é a abordagem certa aqui?"},
     "rq.why_nlp_body": {
-        "en": """The underlying evidence — years of archived news coverage and CMVM
-regulatory filings — exists only as **unstructured text**, spread across
-dozens of sources with no shared schema. Answering Q1–Q3 by hand would mean
-reading thousands of archived pages per club just to find the ones that even
-mention financing.
+        "en": """The underlying evidence — years of archived news coverage — exists
+only as **unstructured text**, spread across dozens of sources with no
+shared schema. Answering Q1–Q3 by hand would mean reading thousands of
+archived pages per club just to find the ones that even mention financing.
 
 NLP is an effective fit because each question maps to a specific,
 well-established technique:
 
-- **Q1** (how many events, by sub-type) needs **text classification** to
+- **Q1** (how many documents, by category) needs **text classification** to
   turn free text into a structured label (relevant / not relevant, then
-  event sub-type) at a volume no manual process could sustain.
+  event category) at a volume no manual process could sustain.
 - **Q2** (temporal clustering) only becomes visible once every article has
   been classified and dated — it is a downstream view of the same
   classification output, not a separate technique.
@@ -213,19 +211,19 @@ required to answer Q1–Q3, but they demonstrate the same text can be mined
 for *who* is involved, *what* the article is about, *how* it is framed,
 and a compact readable digest, which is exactly the kind of added value
 NLP brings over keyword search on unstructured archives.""",
-        "pt": """As evidências de base — anos de cobertura noticiosa arquivada e
-comunicados regulatórios à CMVM — existem apenas como **texto não
-estruturado**, espalhado por dezenas de fontes sem esquema comum. Responder
-a Q1–Q3 manualmente implicaria ler milhares de páginas arquivadas por clube
-só para encontrar as que sequer mencionam financiamento.
+        "pt": """As evidências de base — anos de cobertura noticiosa arquivada —
+existem apenas como **texto não estruturado**, espalhado por dezenas de
+fontes sem esquema comum. Responder a Q1–Q3 manualmente implicaria ler
+milhares de páginas arquivadas por clube só para encontrar as que sequer
+mencionam financiamento.
 
 O NLP é uma escolha eficaz porque cada pergunta corresponde a uma técnica
 específica e bem estabelecida:
 
-- **Q1** (quantos eventos, por subtipo) precisa de **classificação de
+- **Q1** (quantos documentos, por categoria) precisa de **classificação de
   texto** para transformar texto livre num rótulo estruturado (relevante /
-  não relevante, depois subtipo de evento) a um volume que nenhum processo
-  manual sustentaria.
+  não relevante, depois categoria de evento) a um volume que nenhum
+  processo manual sustentaria.
 - **Q2** (agrupamento temporal) só se torna visível depois de cada artigo
   estar classificado e datado — é uma vista derivada do mesmo resultado de
   classificação, não uma técnica separada.
@@ -252,8 +250,10 @@ palavras-chave em arquivos não estruturados.""",
 - Arquivo.pt coverage varies across sources, clubs, and years — a
   higher count can reflect better archival coverage rather than
   more financial activity.
-- News-to-PDF links only count as documentary evidence once
-  manually validated (see the "Documentary layer" page).
+- The event category is assigned by lexical rules, not a trained
+  classifier — it favors precision on well-worded articles and can
+  miss paraphrased or ambiguous ones (see the "unclear/multiple"
+  bucket).
 - Temporal spikes are descriptive and do not establish causal
   links to crises, seasons, or transfer windows.""",
         "pt": """- A unidade observada é uma **notícia classificada**, não necessariamente um
@@ -264,8 +264,10 @@ palavras-chave em arquivos não estruturados.""",
 - A cobertura do Arquivo.pt varia entre fontes, clubes e anos — uma
   contagem superior pode refletir melhor cobertura arquivística, e não
   necessariamente mais atividade financeira.
-- As associações entre notícias e PDFs só contam como evidência documental
-  depois de validação manual (ver a página "Camada documental").
+- A categoria do evento é atribuída por regras lexicais, não por um
+  classificador treinado — favorece precisão em artigos bem escritos e
+  pode falhar em artigos parafraseados ou ambíguos (ver o resíduo
+  "pouco claro/múltiplo").
 - Os picos temporais são descritivos e não estabelecem relações causais
   com crises, épocas ou janelas de transferências.""",
     },
@@ -302,8 +304,8 @@ palavras-chave em arquivos não estruturados.""",
         "pt": "Nota: o corpus de notícias e os modelos de NLP (spaCy, YAKE) estão configurados para português, porque os artigos-fonte recolhidos do Arquivo.pt estão escritos em português — isso mantém-se independentemente da língua da interface.",
     },
     "nlp.models_disabled": {
-        "en": "Relevance / event-type classification disabled — copy `modelo_relevancia.joblib` and `modelo_tipo_evento.joblib` into the project root to enable it.",
-        "pt": "Classificação de relevância/tipo de evento desativada — copia `modelo_relevancia.joblib` e `modelo_tipo_evento.joblib` para a raiz do projeto para a ativar.",
+        "en": "Relevance classification disabled — copy `modelo_relevancia.joblib` into the project root to enable it. The event category preview below always works, since it's rule-based.",
+        "pt": "Classificação de relevância desativada — copia `modelo_relevancia.joblib` para a raiz do projeto para a ativar. A pré-visualização da categoria do evento abaixo funciona sempre, por ser baseada em regras.",
     },
     "nlp.source_label": {"en": "Text source", "pt": "Fonte de texto"},
     "nlp.source_corpus": {"en": "Corpus article", "pt": "Artigo do corpus"},
@@ -316,11 +318,15 @@ palavras-chave em arquivos não estruturados.""",
     "nlp.warn_empty": {"en": "Write or select a text before analyzing.", "pt": "Escreve ou seleciona um texto antes de analisar."},
     "nlp.info_start": {"en": "Pick an article or paste free text, then click analyze.", "pt": "Escolhe um artigo ou cola texto livre e clica em analisar."},
     "nlp.expander_text": {"en": "Text under analysis", "pt": "Texto em análise"},
-    "nlp.classification_header": {"en": "Classification (models trained in the notebook)", "pt": "Classificação (modelos treinados no notebook)"},
+    "nlp.classification_header": {"en": "Classification (notebook sections 7–8)", "pt": "Classificação (secções 7–8 do notebook)"},
     "nlp.metric_relevance": {"en": "Predicted relevance", "pt": "Relevância prevista"},
     "nlp.relevant": {"en": "Relevant", "pt": "Relevante"},
     "nlp.not_relevant": {"en": "Not relevant", "pt": "Não relevante"},
-    "nlp.metric_event_type": {"en": "Predicted event type", "pt": "Tipo de evento previsto"},
+    "nlp.metric_event_type": {"en": "Event category (rule-based)", "pt": "Categoria do evento (baseada em regras)"},
+    "nlp.event_type_help": {
+        "en": "Lexical rules over financing terminology, not a trained classifier — the same logic the notebook applies to every document predicted as relevant.",
+        "pt": "Regras lexicais sobre terminologia de financiamento, não um classificador treinado — a mesma lógica que o notebook aplica a cada documento previsto como relevante.",
+    },
     "nlp.tab_entities": {"en": "Entities", "pt": "Entidades"},
     "nlp.tab_keywords": {"en": "Keywords", "pt": "Palavras-chave"},
     "nlp.tab_sentiment": {"en": "Sentiment", "pt": "Sentimento"},
@@ -355,46 +361,6 @@ palavras-chave em arquivos não estruturados.""",
         "pt": "Não foi possível gerar o resumo com o LLM local: {error}",
     },
 
-    # -- app_pages/documentary_layer.py --------------------------------------
-    "doc.title": {"en": "Documentary layer (CMVM)", "pt": "Camada documental (CMVM)"},
-    "doc.caption": {
-        "en": "Links financing events reported in the news to official archived documents (CMVM PDFs and club websites) — notebook section 15.",
-        "pt": "Liga eventos noticiados a documentos oficiais arquivados (PDF da CMVM e dos sites dos clubes) — secção 15 do notebook.",
-    },
-    "doc.empty": {
-        "en": "This page stays empty until you copy `pdfs_indice.csv`, `candidatos_documentais.csv`, and/or `base_documental_final.csv` (notebook section 15) into the project root.",
-        "pt": "Esta página fica vazia até copiares `pdfs_indice.csv`, `candidatos_documentais.csv` e/ou `base_documental_final.csv` (secção 15 do notebook) para a raiz do projeto.",
-    },
-    "doc.filters_note": {
-        "en": "This page cross-references a separate PDF index — the sidebar filters used on other pages do not apply here.",
-        "pt": "Esta página cruza um índice de PDFs separado — os filtros da barra lateral usados noutras páginas não se aplicam aqui.",
-    },
-    "doc.metric_pdfs": {"en": "Indexed PDFs", "pt": "PDFs indexados"},
-    "doc.metric_clubs": {"en": "Clubs with documents", "pt": "Clubes com documentos"},
-    "doc.metric_hosts": {"en": "Distinct hosts", "pt": "Hosts distintos"},
-    "doc.chart_subheader": {"en": "PDFs by club and source", "pt": "PDFs por clube e fonte"},
-    "doc.matches_header": {"en": "News ↔ document matches", "pt": "Correspondências notícia ↔ documento"},
-    "doc.validated_success": {"en": "{n} manually validated matches.", "pt": "{n} correspondências validadas manualmente."},
-    "doc.candidates_warning": {
-        "en": "{n} candidate matches (by date proximity), not yet manually validated — treat as a hypothesis, not a fact.",
-        "pt": "{n} correspondências candidatas (por proximidade de data), ainda sem validação manual — tratar como hipótese, não como facto.",
-    },
-    "doc.show_all_candidates": {
-        "en": "Show all candidates (not just the closest date match per event)",
-        "pt": "Mostrar todos os candidatos (não só a correspondência de data mais próxima por evento)",
-    },
-    "doc.best_match_caption": {
-        "en": "Showing the single closest-date candidate per event ({n} rows). Enable the checkbox above to see every candidate within the matching window.",
-        "pt": "A mostrar apenas o candidato com a data mais próxima por evento ({n} linhas). Ativa a opção acima para ver todos os candidatos dentro da janela de correspondência.",
-    },
-    "doc.col_original_url": {"en": "Original URL", "pt": "URL original"},
-    "doc.col_archived": {"en": "Archived version", "pt": "Versão arquivada"},
-    "doc.col_delta_days": {"en": "Δ days news↔document", "pt": "Δ dias notícia↔documento"},
-    "doc.financial_header": {"en": "Candidate financial variables (regex extraction)", "pt": "Variáveis financeiras candidatas (extração por regex)"},
-    "doc.financial_caption": {
-        "en": "Amounts, rates, dates, and terms found by regular expressions in the PDF text — candidates to be manually validated, not confirmed values.",
-        "pt": "Montantes, taxas, datas e prazos encontrados por expressões regulares no texto dos PDFs — candidatos a validar manualmente, não valores confirmados.",
-    },
 
     # -- app_pages/data_export.py ---------------------------------------------
     "data.title": {"en": "Data & export", "pt": "Dados e exportação"},
@@ -414,22 +380,23 @@ Benfica SAD, FC Porto SAD, and Sporting SAD.
 
 ### Pipeline (notebook)
 
-1. **Collection** of news and documents via the Arquivo.pt API,
-   partitioned by (host, year) to work around the 500-results-per-search
-   cap.
+1. **Collection** of news via the Arquivo.pt API, partitioned by (host,
+   year) to work around the 500-results-per-search cap.
 2. **Cleaning and normalization** of text (HTML entities, URLs,
    whitespace).
-3. **Lexical pre-filter** oriented towards recall, to reduce the volume
-   to be annotated.
+3. **Human annotation** of a sampled subset (positives, hard negatives,
+   easy negatives) to build a gold-standard set.
 4. **Binary relevance classification** (TF-IDF + logistic regression),
-   trained on manual annotations.
-5. **Multiclass event-type classification** — bond issuance, bank
-   financing, capital increase, regulatory disclosure.
-6. **Documentary layer**: linking news items to official PDFs (CMVM,
-   club websites) by date proximity, with preliminary extraction of
-   amounts, rates, dates, and terms via regular expressions.
-7. **Analysis** — distribution by club/type, time evolution, coverage
-   indicators, and possible bias between sources.
+   trained on the human annotations.
+5. **Rule-based event category**: lexical regex patterns assign each
+   relevant document to capital-market debt, bank/debt financing, capital
+   increase, or a residual "unclear/multiple" bucket — not a trained
+   classifier.
+6. **Named entities and financial-field extraction** (spaCy NER +
+   regex) over the relevant documents — amounts, rates, and maturity
+   dates.
+7. **Analysis** — distribution by club/category, time evolution,
+   coverage indicators, and possible bias between sources.
 
 ### In this prototype (Streamlit)
 
@@ -450,42 +417,44 @@ the "NLP lab" page, to any corpus article or user-pasted text:
   (`csebuetnlp/mT5_multilingual_XLSum`), loaded locally, with no calls
   to paid APIs.
 
-Relevance and event-type classification in the NLP lab reuse the
-models trained in the notebook (`modelo_relevancia.joblib`,
-`modelo_tipo_evento.joblib`), when present in the project root.
+Relevance classification in the NLP lab reuses the model trained in the
+notebook (`modelo_relevancia.joblib`), when present in the project root.
+The event category preview reuses the notebook's rule-based logic
+directly, so it always works, with or without that file.
 
 ### Why NLP for this problem?
 
-The evidence base — years of archived news coverage and CMVM
-regulatory filings — exists only as unstructured text, spread across
-dozens of sources with no shared schema. Manually reading everything
-to spot financing events does not scale. NLP turns that free text
-into structured, comparable signal: classification answers *how many*
-events and *of what type*, while NER, keyword extraction, sentiment,
-and summarization surface *who* is involved, *what* each article is
-about, and a compact digest of *why* it matters — see the "Research
-questions" page for how this maps to each question.""",
+The evidence base — years of archived news coverage — exists only as
+unstructured text, spread across dozens of sources with no shared
+schema. Manually reading everything to spot financing events does not
+scale. NLP turns that free text into structured, comparable signal:
+classification answers *how many* documents are relevant and *of what
+category*, while NER, keyword extraction, sentiment, and summarization
+surface *who* is involved, *what* each article is about, and a compact
+digest of *why* it matters — see the "Research questions" page for how
+this maps to each question.""",
         "pt": """Esta app apresenta um pipeline de inteligência corporativa aplicado
 ao futebol português, focado em eventos de financiamento e mercado de
 capitais do Benfica SAD, FC Porto SAD e Sporting SAD.
 
 ### Pipeline (notebook)
 
-1. **Recolha** de notícias e documentos via a API do Arquivo.pt,
-   particionada por (host, ano) para contornar o teto de 500 resultados
-   por pesquisa.
+1. **Recolha** de notícias via a API do Arquivo.pt, particionada por
+   (host, ano) para contornar o teto de 500 resultados por pesquisa.
 2. **Limpeza e normalização** de texto (entidades HTML, URLs, espaços).
-3. **Pré-filtro lexical** orientado a recall, para reduzir o volume a
-   anotar.
+3. **Anotação humana** de uma amostra (positivos, negativos difíceis,
+   negativos fáceis) para construir um conjunto gold-standard.
 4. **Classificação binária de relevância** (TF-IDF + regressão
-   logística), treinada em anotações manuais.
-5. **Classificação multiclasse do tipo de evento** — emissão de
-   obrigações, financiamento bancário, aumento de capital, divulgação
-   regulatória.
-6. **Camada documental**: ligação de notícias a PDFs oficiais (CMVM,
-   sites dos clubes) por proximidade de data, com extração preliminar de
-   montantes, taxas, datas e prazos por expressões regulares.
-7. **Análise** — distribuição por clube/tipo, evolução temporal,
+   logística), treinada nas anotações humanas.
+5. **Categoria de evento baseada em regras**: padrões lexicais (regex)
+   atribuem a cada documento relevante uma categoria — dívida em
+   mercado de capitais, financiamento bancário/dívida, aumento de
+   capital, ou um resíduo "pouco claro/múltiplo" — não é um classificador
+   treinado.
+6. **Entidades e extração de campos financeiros** (NER com spaCy +
+   regex) sobre os documentos relevantes — montantes, taxas e datas de
+   maturidade.
+7. **Análise** — distribuição por clube/categoria, evolução temporal,
    indicadores de cobertura e possível viés entre fontes.
 
 ### Neste protótipo (Streamlit)
@@ -509,40 +478,35 @@ pelo utilizador:
   (`csebuetnlp/mT5_multilingual_XLSum`), carregado localmente, sem
   chamadas a APIs pagas.
 
-A classificação de relevância e de tipo de evento no laboratório de NLP
-reutiliza os modelos treinados no notebook
-(`modelo_relevancia.joblib`, `modelo_tipo_evento.joblib`), quando
-presentes na raiz do projeto.
+A classificação de relevância no laboratório de NLP reutiliza o modelo
+treinado no notebook (`modelo_relevancia.joblib`), quando presente na
+raiz do projeto. A pré-visualização da categoria do evento reutiliza
+diretamente a lógica baseada em regras do notebook, por isso funciona
+sempre, com ou sem esse ficheiro.
 
 ### Porque é o NLP a abordagem certa?
 
-A base de evidência — anos de cobertura noticiosa arquivada e
-comunicados regulatórios à CMVM — existe apenas como texto não
-estruturado, espalhado por dezenas de fontes sem esquema comum. Ler tudo
-manualmente para identificar eventos de financiamento não é escalável.
-O NLP transforma esse texto livre em sinal estruturado e comparável: a
-classificação responde a *quantos* eventos e *de que tipo*, enquanto
-NER, extração de palavras-chave, sentimento e sumarização revelam
-*quem* está envolvido, *sobre o que* é cada artigo, e um resumo
-compacto de *porque* é relevante — ver a página "Perguntas de
-investigação" para a relação com cada pergunta.""",
+A base de evidência — anos de cobertura noticiosa arquivada — existe
+apenas como texto não estruturado, espalhado por dezenas de fontes sem
+esquema comum. Ler tudo manualmente para identificar eventos de
+financiamento não é escalável. O NLP transforma esse texto livre em
+sinal estruturado e comparável: a classificação responde a *quantos*
+documentos são relevantes e *de que categoria*, enquanto NER, extração
+de palavras-chave, sentimento e sumarização revelam *quem* está
+envolvido, *sobre o que* é cada artigo, e um resumo compacto de
+*porque* é relevante — ver a página "Perguntas de investigação" para a
+relação com cada pergunta.""",
     },
     "meth.status_header": {"en": "Loaded data status", "pt": "Estado dos dados carregados"},
-    "meth.metric_event_type": {"en": "Event type", "pt": "Tipo de evento"},
-    "meth.event_type_model": {"en": "Trained model", "pt": "Modelo treinado"},
-    "meth.event_type_rules": {"en": "Rules (pre-annotation)", "pt": "Regras (pré-anotação)"},
-    "meth.metric_doc_layer": {"en": "Documentary layer", "pt": "Camada documental"},
-    "meth.doc_layer_available": {"en": "Available", "pt": "Disponível"},
-    "meth.doc_layer_not_loaded": {"en": "Not loaded", "pt": "Não carregada"},
-    "meth.metric_classifiers": {"en": "Classifiers (.joblib)", "pt": "Classificadores (.joblib)"},
-    "meth.classifiers_loaded": {"en": "Loaded", "pt": "Carregados"},
-    "meth.classifiers_not_found": {"en": "Not found", "pt": "Não encontrados"},
+    "meth.metric_classifiers": {"en": "Relevance classifier (.joblib)", "pt": "Classificador de relevância (.joblib)"},
+    "meth.classifiers_loaded": {"en": "Loaded", "pt": "Carregado"},
+    "meth.classifiers_not_found": {"en": "Not found", "pt": "Não encontrado"},
     "meth.metric_results": {"en": "Research results", "pt": "Resultados de investigação"},
     "meth.results_available": {"en": "Available", "pt": "Disponíveis"},
     "meth.results_not_loaded": {"en": "Not loaded", "pt": "Não carregados"},
     "meth.caption_copy_files": {
-        "en": "Copy the files produced by notebook sections 14, 15, and 17 (`corpus_classificado_eventos.csv`, `base_documental_final.csv`, `candidatos_documentais.csv`, `pdfs_indice.csv`, `extracoes_financeiras_preliminares.csv`, `modelo_relevancia.joblib`, `modelo_tipo_evento.joblib`, the `resultados/` folder) into this project's root to unlock the corresponding sections.",
-        "pt": "Copia os ficheiros produzidos pelas secções 14, 15 e 17 do notebook (`corpus_classificado_eventos.csv`, `base_documental_final.csv`, `candidatos_documentais.csv`, `pdfs_indice.csv`, `extracoes_financeiras_preliminares.csv`, `modelo_relevancia.joblib`, `modelo_tipo_evento.joblib`, a pasta `resultados/`) para a raiz deste projeto para desbloquear as secções correspondentes.",
+        "en": "Copy the files produced by notebook section 10 (`corpus_classificado.csv`, `modelo_relevancia.joblib`, the `resultados/` folder) into this project's root to unlock the corresponding sections.",
+        "pt": "Copia os ficheiros produzidos pela secção 10 do notebook (`corpus_classificado.csv`, `modelo_relevancia.joblib`, a pasta `resultados/`) para a raiz deste projeto para desbloquear as secções correspondentes.",
     },
     "meth.limitations_header": {"en": "Limitations", "pt": "Limitações"},
     "meth.logo_credit": {
@@ -572,11 +536,12 @@ investigação" para a relação com cada pergunta.""",
 }
 
 EVENT_LABELS: dict[str, dict[str, str]] = {
-    "bond_issuance": {"en": "Bond issuance", "pt": "Emissão de obrigações"},
-    "bank_financing": {"en": "Bank financing", "pt": "Financiamento bancário"},
-    "debt_restructuring": {"en": "Debt restructuring", "pt": "Reestruturação de dívida"},
+    "capital_market_debt": {"en": "Capital-market debt", "pt": "Dívida em mercado de capitais"},
+    "bank_and_debt_financing": {"en": "Bank & debt financing", "pt": "Financiamento bancário e dívida"},
     "capital_increase": {"en": "Capital increase", "pt": "Aumento de capital"},
-    "regulatory_disclosure": {"en": "Regulatory disclosure (CMVM)", "pt": "Divulgação regulatória (CMVM)"},
+    "multiple_or_ambiguous": {"en": "Multiple / ambiguous", "pt": "Múltiplo / ambíguo"},
+    "other_or_unclear": {"en": "Other / unclear", "pt": "Outro / pouco claro"},
+    "not_applicable": {"en": "Not applicable (not relevant)", "pt": "Não aplicável (não relevante)"},
     "unknown": {"en": "Not identified", "pt": "Não identificado"},
     "": {"en": "Not identified", "pt": "Não identificado"},
 }

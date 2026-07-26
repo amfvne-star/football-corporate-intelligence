@@ -1,11 +1,12 @@
 import pandas as pd
 import streamlit as st
 
-from lib.data import load_corpus, load_event_model, load_relevance_model
+from lib.data import load_corpus, load_relevance_model
 from lib.format import format_percentage
 from lib.i18n import entity_label, event_label, sentiment_label, t
 from lib.nlp import (
     analyze_sentiment,
+    classify_event_rules,
     classify_text,
     extract_entities,
     extract_keywords,
@@ -31,7 +32,6 @@ st.caption(t("nlp.caption2"))
 
 corpus = load_corpus()
 relevance_model = load_relevance_model()
-event_model = load_event_model()
 
 if relevance_model is None:
     st.caption(t("nlp.models_disabled"))
@@ -99,13 +99,12 @@ if not active_text:
     st.stop()
 
 
-@st.cache_data(show_spinner="Classifying with the trained models...")
+@st.cache_data(show_spinner="Classifying...")
 def _classify(text: str) -> dict:
     result = {}
     if relevance_model is not None:
         result["relevance"] = classify_text(text, relevance_model)
-    if event_model is not None:
-        result["event_type"] = classify_text(text, event_model)
+    result["event_type"] = classify_event_rules(text)
     return result
 
 
@@ -124,35 +123,33 @@ def _analyze(text: str) -> dict:
 with st.expander(t("nlp.expander_text"), icon=":material/description:"):
     st.write(active_text)
 
-if relevance_model is not None or event_model is not None:
-    st.header(t("nlp.classification_header"))
-    classification_result = _classify(active_text)
+st.header(t("nlp.classification_header"))
+classification_result = _classify(active_text)
 
-    with st.container(horizontal=True):
-        relevance = classification_result.get("relevance")
-        if relevance:
-            is_relevant = relevance["class"] == 1
-            st.metric(
-                t("nlp.metric_relevance"),
-                t("nlp.relevant") if is_relevant else t("nlp.not_relevant"),
-                format_percentage(relevance.get("confidence")),
-                border=True,
-            )
+with st.container(horizontal=True):
+    relevance = classification_result.get("relevance")
+    if relevance:
+        is_relevant = relevance["class"] == 1
+        st.metric(
+            t("nlp.metric_relevance"),
+            t("nlp.relevant") if is_relevant else t("nlp.not_relevant"),
+            format_percentage(relevance.get("confidence")),
+            border=True,
+        )
 
-        event_type = classification_result.get("event_type")
-        if event_type:
-            st.metric(
-                t("nlp.metric_event_type"),
-                event_label(event_type["class"]),
-                format_percentage(event_type.get("confidence")),
-                border=True,
-            )
+    event_type = classification_result["event_type"]
+    st.metric(
+        t("nlp.metric_event_type"),
+        event_label(event_type["class"]),
+        help=t("nlp.event_type_help"),
+        border=True,
+    )
 
-    if event_type and event_type.get("probabilities"):
-        probabilities = pd.Series(
-            {event_label(k): v for k, v in event_type["probabilities"].items()}
-        ).sort_values(ascending=False)
-        st.bar_chart(probabilities)
+if event_type.get("matches"):
+    match_counts = pd.Series(
+        {event_label(k): v for k, v in event_type["matches"].items()}
+    ).sort_values(ascending=False)
+    st.bar_chart(match_counts)
 
 analysis = _analyze(active_text)
 

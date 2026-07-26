@@ -2,10 +2,12 @@
 
 Covers the techniques required by the assignment brief that the collection
 pipeline (notebook) does not implement: named entity recognition (NER),
-keyword extraction, sentiment analysis, and summarization. Relevance /
-event-type classification reuses the models already trained in the
-notebook (sections 13 and 14), loaded from `modelo_relevancia.joblib` /
-`modelo_tipo_evento.joblib` when those files exist.
+keyword extraction, sentiment analysis, and summarization. Relevance
+classification reuses the model already trained in the notebook (section 7),
+loaded from `modelo_relevancia.joblib` when that file exists. The event
+category is rule-based (section 8) rather than a trained classifier, so it
+is reproduced directly with `classify_event_rules` below instead of loading
+a model file.
 
 The underlying news corpus is written in Portuguese (collected from
 Arquivo.pt), so the NER model (spaCy) and keyword extractor (YAKE) are
@@ -137,6 +139,65 @@ def summarize_llm(text: str) -> str:
     limited_text = text[:4000]
     result = pipe(limited_text, max_length=120, min_length=25, do_sample=False)
     return result[0]["summary_text"]
+
+
+# Rule-based event category (notebook section 8) — reproduced verbatim so the
+# NLP lab can preview the same category the notebook assigns to relevant
+# documents, without needing a trained model file.
+EVENT_CATEGORY_PATTERNS: dict[str, list[str]] = {
+    "capital_market_debt": [
+        r"\bemiss[aã]o (?:de )?obriga[cç][oõ]es\b",
+        r"\bemiss[aã]o obrigacionista\b",
+        r"\bempr[eé]stimo obrigacionista\b",
+        r"\boferta (?:p[uú]blica )?de obriga[cç][oõ]es\b",
+        r"\bsubscri[cç][aã]o de obriga[cç][oõ]es\b",
+        r"\boferta p[uú]blica de subscri[cç][aã]o\b",
+        r"\bpapel comercial\b",
+        r"\bcommercial paper\b",
+    ],
+    "bank_and_debt_financing": [
+        r"\bfinanciamento banc[aá]rio\b",
+        r"\bempr[eé]stimo banc[aá]rio\b",
+        r"\blinha de cr[eé]dito\b",
+        r"\bcr[eé]dito sindicado\b",
+        r"\bcontrato de financiamento\b",
+        r"\brefinanciamento\b",
+        r"\breestrutura[cç][aã]o (?:da )?d[ií]vida\b",
+        r"\brenegocia[cç][aã]o (?:da )?d[ií]vida\b",
+        r"\breescalonamento (?:da )?d[ií]vida\b",
+        r"\bacordo com credores\b",
+        r"\badia(?:r)?(?: o)? pagamento (?:da )?d[ií]vida\b",
+    ],
+    "capital_increase": [
+        r"\baumento de capital\b",
+        r"\binje[cç][aã]o de capital\b",
+        r"\bsubscri[cç][aã]o de capital\b",
+        r"\bemiss[aã]o de novas a[cç][oõ]es\b",
+        r"\brefor[cç]o de capital\b",
+    ],
+}
+
+
+def classify_event_rules(text: str) -> dict:
+    """Rule-based event category: the category whose regex list matches the
+    most times in `text` wins; ties become "multiple_or_ambiguous", and no
+    matches at all becomes "other_or_unclear"."""
+    lowered = (text or "").lower()
+    scores = {
+        category: sum(1 for pattern in patterns if re.search(pattern, lowered))
+        for category, patterns in EVENT_CATEGORY_PATTERNS.items()
+    }
+
+    best = max(scores.values()) if scores else 0
+    if best == 0:
+        return {"class": "other_or_unclear", "matches": {}}
+
+    winners = [category for category, score in scores.items() if score == best]
+    category = winners[0] if len(winners) == 1 else "multiple_or_ambiguous"
+    return {
+        "class": category,
+        "matches": {c: s for c, s in scores.items() if s > 0},
+    }
 
 
 def classify_text(text: str, model) -> dict | None:

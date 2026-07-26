@@ -28,7 +28,6 @@ pages = [
     st.Page("app_pages/research_questions.py", title=t("nav.research_questions"), icon=":material/query_stats:"),
     st.Page("app_pages/events.py", title=t("nav.events"), icon=":material/article:"),
     st.Page("app_pages/nlp_lab.py", title=t("nav.nlp_lab"), icon=":material/science:"),
-    st.Page("app_pages/documentary_layer.py", title=t("nav.documentary_layer"), icon=":material/description:"),
     st.Page("app_pages/data_export.py", title=t("nav.data_export"), icon=":material/table_chart:"),
     st.Page("app_pages/methodology.py", title=t("nav.methodology"), icon=":material/menu_book:"),
 ]

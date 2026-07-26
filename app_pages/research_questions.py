@@ -28,7 +28,7 @@ with tab_q1:
     st.header(t("rq.q1_header"))
     st.markdown(t("rq.q1_body"))
 
-    q1 = load_result("q1_eventos_por_clube_tipo.csv")
+    q1 = load_result("q1_documentos_por_clube_categoria.csv")
     if q1.empty:
         st.caption(t("rq.q1_missing"))
     else:
@@ -52,8 +52,8 @@ with tab_q2:
     st.header(t("rq.q2_header"))
     st.markdown(t("rq.q2_body"))
 
-    q2_club = load_result("q2_eventos_por_ano_clube.csv")
-    q2_type = load_result("q2_eventos_por_ano_tipo.csv")
+    q2_club = load_result("q2_documentos_por_ano_clube.csv")
+    q2_type = load_result("q2_documentos_por_ano_categoria.csv")
 
     col_left, col_right = st.columns(2)
     with col_left:
