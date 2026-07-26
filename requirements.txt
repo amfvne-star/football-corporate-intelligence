@@ -1,0 +1,11 @@
+streamlit>=1.42
+pandas
+plotly
+joblib
+scikit-learn==1.6.1  # pinned to match the version the notebook trained modelo_*.joblib with
+spacy>=3.7
+https://github.com/explosion/spacy-models/releases/download/pt_core_news_sm-3.8.0/pt_core_news_sm-3.8.0-py3-none-any.whl
+yake
+transformers
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch  # CPU-only wheel (above) — much smaller/faster to install on Streamlit Cloud than the default CUDA build
