@@ -91,8 +91,11 @@ def load_result(file_name: str) -> pd.DataFrame:
 
 
 @st.cache_data
-def load_synthesis() -> str:
-    path = RESULTS_FOLDER / "sintese_resultados.txt"
+def load_synthesis(lang: str = "pt") -> str:
+    file_name = "sintese_resultados_en.txt" if lang == "en" else "sintese_resultados.txt"
+    path = RESULTS_FOLDER / file_name
+    if not path.exists():
+        path = RESULTS_FOLDER / "sintese_resultados.txt"
     if not path.exists():
         return ""
     return path.read_text(encoding="utf-8")

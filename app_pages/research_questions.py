@@ -4,7 +4,7 @@ import streamlit as st
 
 from lib.charts import CLUB_COLOR_SEQUENCE, CLUB_ORDER, SECONDARY_SEQUENCE, SINGLE_SERIES_COLOR, add_period_annotations, fold_long_tail
 from lib.data import data_state, load_corpus, load_result, load_synthesis
-from lib.i18n import event_label, t
+from lib.i18n import event_label, get_lang, t
 
 st.title(t("rq.title"))
 st.caption(t("rq.caption"))
@@ -64,7 +64,7 @@ with tab_q2:
             q2_club = q2_club.reindex(columns=[c for c in CLUB_ORDER if c in q2_club.columns])
             fig = px.line(q2_club, markers=True, color_discrete_sequence=CLUB_COLOR_SEQUENCE)
             fig.update_layout(xaxis_title=t("rq.axis_year"), yaxis_title=t("rq.axis_num_events"), legend_title=t("rq.legend_club"))
-            add_period_annotations(fig, t("rq.annotation_2008"), t("rq.annotation_covid"))
+            add_period_annotations(fig, t("rq.annotation_covid"))
             st.plotly_chart(fig, width="stretch")
 
     with col_right:
@@ -168,7 +168,7 @@ with tab_context:
     st.header(t("rq.why_nlp_header"))
     st.markdown(t("rq.why_nlp_body"))
 
-    synthesis = load_synthesis()
+    synthesis = load_synthesis(get_lang())
     if synthesis:
         st.subheader(t("rq.synthesis_header"))
         for line in synthesis.splitlines():

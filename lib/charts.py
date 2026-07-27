@@ -66,13 +66,8 @@ def fold_long_tail(series, max_categories: int = MAX_CATEGORIES, other_label: st
     return pd.concat([top, pd.Series({other_label: rest})])
 
 
-def add_period_annotations(fig, crisis_label: str, covid_label: str):
-    """Shades known macro/crisis periods on a year-indexed time chart."""
-    fig.add_vrect(
-        x0=2008, x1=2009.6, fillcolor=MUTED, opacity=0.12, line_width=0,
-        annotation_text=crisis_label, annotation_position="top left",
-        annotation_font_size=11, annotation_font_color=MUTED,
-    )
+def add_period_annotations(fig, covid_label: str):
+    """Shades the COVID-19 period on a year-indexed time chart (data covers 2019-2025)."""
     fig.add_vrect(
         x0=2020, x1=2021.6, fillcolor=MUTED, opacity=0.12, line_width=0,
         annotation_text=covid_label, annotation_position="top left",
