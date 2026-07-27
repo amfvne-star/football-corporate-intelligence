@@ -15,6 +15,7 @@ def sidebar_filters(df: pd.DataFrame) -> pd.DataFrame:
     all_clubs = sorted({c for row in df["club_list"] for c in row}) if "club_list" in df.columns else []
     event_types = sorted(df["event_type_display"].dropna().loc[lambda x: x != ""].unique().tolist())
     sources = sorted(df["fonte"].dropna().loc[lambda x: x != ""].unique().tolist())
+    all_years = sorted(df["year"].dropna().unique().tolist()) if "year" in df.columns else []
 
     with st.sidebar:
         st.header(t("filters.header"))
@@ -23,6 +24,7 @@ def sidebar_filters(df: pd.DataFrame) -> pd.DataFrame:
             t("filters.relevant_only"), value=True, key="filter_relevant_only"
         )
         selected_clubs = st.multiselect(t("filters.club"), options=all_clubs, key="filter_clubs")
+        selected_years = st.multiselect(t("filters.year"), options=all_years, key="filter_years")
         selected_events = st.multiselect(t("filters.event_type"), options=event_types, key="filter_events")
         selected_sources = st.multiselect(t("filters.source"), options=sources, key="filter_sources")
         min_probability = st.slider(
@@ -45,6 +47,9 @@ def sidebar_filters(df: pd.DataFrame) -> pd.DataFrame:
         result = result[
             result["club_list"].apply(lambda row: any(c in row for c in selected_clubs))
         ]
+
+    if selected_years and "year" in result.columns:
+        result = result[result["year"].isin(selected_years)]
 
     if selected_events:
         result = result[result["event_type_display"].isin(selected_events)]
