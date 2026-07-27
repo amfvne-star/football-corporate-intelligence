@@ -1,3 +1,5 @@
-﻿ano,capital_market_debt,bank_and_debt_financing,capital_increase
-2019,7,0,0
-2020,6,0,0
+﻿ano,capital_market_debt,bank_and_debt_financing,capital_increase,other_or_unclear,multiple_or_ambiguous
+2019,15,8,22,127,0
+2020,42,6,6,256,0
+2021,1,0,0,1,0
+2025,0,0,0,1,0

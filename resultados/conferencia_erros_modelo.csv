@@ -1,7 +1,8 @@
-﻿doc_id,titulo,real,previsto,tipo_exemplo,notas,prob_relevante,erro_tipo
-f5609987b85bf647,Sevilha contrata Marcos Acuña ao Sporting | Futebol nacional | PÚBLICO,0,1,hard_negative,,0.6608544075343402,Falso Positivo (Deveria ser 0?)
-278f58748ea7d67e,V. Guimarães pediu a insolvência da Sporting SAD | Futebol nacional | PÚBLICO,0,1,hard_negative,,0.6437928547854825,Falso Positivo (Deveria ser 0?)
-582a3307ceef3cb3,Benfica gastou quase sete milhões de euros com Caio Lucas e Cádiz | Futebol | PÚBLICO,0,1,hard_negative,,0.5304949067492067,Falso Positivo (Deveria ser 0?)
-4882ad710b7cd261,"Ex-assessor da Benfica SAD, Paulo Gonçalves, representou mesmo Luquinhas | Futebol | PÚBLICO",0,1,hard_negative,,0.5141216468373005,Falso Positivo (Deveria ser 0?)
-177b9950804269d9,"Sporting fecha exercício 2019/20 com 12,5 milhões de lucro e consegue volume de negócios recorde de ",1,0,positive,,0.41654681452115405,Falso Negativo (Deveria ser 1?)
-e017d6dd60eee78c,CMVM está há 3 meses a questionar Benfica sobre OPA – Observador,1,0,positive,,0.4605635601054578,Falso Negativo (Deveria ser 1?)
+﻿doc_id,titulo,fonte,real,tipo_exemplo,notas,previsto,prob_relevante,erro_tipo
+582a3307ceef3cb3,Benfica gastou quase sete milhões de euros com Caio Lucas e Cádiz | Futebol | PÚBLICO,publico,0,hard_negative,,1,0.5921740210116399,falso_positivo
+04f37a54586edceb,"Pharol acompanha aumento de capital da Oi e ficará com 5,5% - Empresas - Jornal de Negócios",negocios,0,hard_negative,,1,0.5544958365182205,falso_positivo
+987237c242c8db57,"Varandas acerta contas com o passado: negócios duvidosos, gestão irresponsável e um “mentiroso compu",observador,1,positive,,0,0.3923928364766307,falso_negativo
+e017d6dd60eee78c,CMVM está há 3 meses a questionar Benfica sobre OPA – Observador,observador,1,positive,,0,0.4509631250302145,falso_negativo
+068484e8da93084a,Domingos Soares de Oliveira aborda contrato com a NOS e o empréstimo obrigacionista,ojogo,1,positive,,0,0.48275842658050816,falso_negativo
+08cefcfd80c551d4,Sobrinho pede demissão de Bruno de Carvalho por colocar em risco os activos do Sporting - desporto -,negocios,1,positive,,0,0.489783674099759,falso_negativo
+69282acc2a2b69e2,Assembleia de obrigacionistas da FC Porto SAD adiada para Junho | FC Porto | PÚBLICO,publico,1,positive,,0,0.49311083067218137,falso_negativo

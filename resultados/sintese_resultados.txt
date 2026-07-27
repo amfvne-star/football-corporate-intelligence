@@ -1,4 +1,4 @@
-Q1: FC Porto apresentou o maior número de documentos classificados (5), no conjunto analisado.
-O tipo mais frequente foi capital_market_debt (13 ocorrências documento–clube).
-Q2: o maior número anual de documentos únicos ocorreu em 2019 (6). Esta concentração é descritiva e não implica causalidade.
-Q3: Benfica teve a maior cobertura arquivada (281 notícias únicas). A razão entre a maior e a menor cobertura foi 2.20, indicando que as comparações brutas podem ser afetadas por disponibilidade desigual de fontes.
+Q1: Benfica apresentou o maior número de documentos classificados (319), no conjunto analisado.
+O tipo mais frequente foi other_or_unclear (385 ocorrências documento–clube).
+Q2: o maior número anual de documentos únicos ocorreu em 2020 (304). Esta concentração é descritiva e não implica causalidade.
+Q3: Benfica teve a maior cobertura arquivada (3292 notícias únicas). A razão entre a maior e a menor cobertura foi 1.91, indicando que as comparações brutas podem ser afetadas por disponibilidade desigual de fontes.
