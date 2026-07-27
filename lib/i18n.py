@@ -28,6 +28,7 @@ STRINGS: dict[str, dict[str, str]] = {
     "nav.research_questions": {"en": "Research questions", "pt": "Perguntas de investigação"},
     "nav.events": {"en": "Event explorer", "pt": "Explorador de eventos"},
     "nav.nlp_lab": {"en": "NLP lab", "pt": "Laboratório de NLP"},
+    "nav.assistant": {"en": "Assistant", "pt": "Assistente"},
     "nav.data_export": {"en": "Data & export", "pt": "Dados e exportação"},
     "nav.methodology": {"en": "Methodology", "pt": "Metodologia"},
 
@@ -358,6 +359,38 @@ palavras-chave em arquivos não estruturados.""",
     "nlp.llm_error": {
         "en": "Could not generate the summary with the local LLM: {error}",
         "pt": "Não foi possível gerar o resumo com o LLM local: {error}",
+    },
+
+    # -- app_pages/assistant.py -------------------------------------------
+    "assistant.title": {"en": "Assistant", "pt": "Assistente"},
+    "assistant.caption": {
+        "en": "Ask questions about the corpus in English or Portuguese. Answers are grounded in retrieved articles, shown as sources below each reply.",
+        "pt": "Faz perguntas sobre o corpus em português ou inglês. As respostas baseiam-se em artigos recuperados, apresentados como fontes abaixo de cada resposta.",
+    },
+    "assistant.caveat": {
+        "en": "Runs a small local model (`Qwen2.5-0.5B-Instruct`) — answers can be terse or wrong, always check the sources. Not designed for counting/aggregation questions (e.g. \"how many bond issuances in 2023\"); use the Dashboard and Research questions pages for that.",
+        "pt": "Usa um modelo local pequeno (`Qwen2.5-0.5B-Instruct`) — as respostas podem ser incompletas ou incorretas, confirma sempre nas fontes. Não serve para perguntas de contagem/agregação (ex.: \"quantas emissões de obrigações em 2023\"); usa o Dashboard e as Perguntas de investigação para isso.",
+    },
+    "assistant.no_corpus": {
+        "en": "No corpus loaded — nothing to answer questions about yet.",
+        "pt": "Nenhum corpus carregado — ainda não há dados sobre os quais responder.",
+    },
+    "assistant.input_placeholder": {
+        "en": "Ask about a club, a bond issuance, a financing event...",
+        "pt": "Pergunta sobre um clube, uma emissão de obrigações, um evento de financiamento...",
+    },
+    "assistant.thinking_spinner": {
+        "en": "Searching the corpus and generating an answer with the local model...",
+        "pt": "A pesquisar no corpus e a gerar resposta com o modelo local...",
+    },
+    "assistant.sources_label": {"en": "Sources ({n})", "pt": "Fontes ({n})"},
+    "assistant.no_context_found": {
+        "en": "I could not find anything relevant to that question in the corpus.",
+        "pt": "Não encontrei nada relevante para essa pergunta no corpus.",
+    },
+    "assistant.error": {
+        "en": "Could not generate an answer with the local assistant: {error}",
+        "pt": "Não foi possível gerar uma resposta com o assistente local: {error}",
     },
 
 
