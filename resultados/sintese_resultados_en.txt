@@ -1,4 +1,4 @@
-Q1: Benfica had the highest number of classified documents (319) in the analyzed set.
-The most frequent type was other_or_unclear (385 document–club occurrences).
-Q2: the highest number of unique documents in a single year occurred in 2020 (304). This concentration is descriptive and does not imply causation.
-Q3: Benfica had the highest archived coverage (3292 unique news items). The ratio between the highest and lowest coverage was 1.91, indicating that raw comparisons may be affected by uneven source availability.
+Q1: Benfica had the highest number of classified documents (29) in the analyzed set.
+The most frequent type was capital_market_debt (38 document–club occurrences).
+Q2: the highest number of unique documents in a single year occurred in 2020 (75). This concentration is descriptive and does not imply causation.
+Q3: Benfica had the highest archived coverage (3289 unique news items). The ratio between the highest and lowest coverage was 1.91, indicating that raw comparisons may be affected by uneven source availability.

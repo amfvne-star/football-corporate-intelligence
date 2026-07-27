@@ -1,8 +1,5 @@
 ﻿doc_id,titulo,fonte,real,tipo_exemplo,notas,previsto,prob_relevante,erro_tipo
-582a3307ceef3cb3,Benfica gastou quase sete milhões de euros com Caio Lucas e Cádiz | Futebol | PÚBLICO,publico,0,hard_negative,,1,0.5921740210116399,falso_positivo
-04f37a54586edceb,"Pharol acompanha aumento de capital da Oi e ficará com 5,5% - Empresas - Jornal de Negócios",negocios,0,hard_negative,,1,0.5544958365182205,falso_positivo
-987237c242c8db57,"Varandas acerta contas com o passado: negócios duvidosos, gestão irresponsável e um “mentiroso compu",observador,1,positive,,0,0.3923928364766307,falso_negativo
-e017d6dd60eee78c,CMVM está há 3 meses a questionar Benfica sobre OPA – Observador,observador,1,positive,,0,0.4509631250302145,falso_negativo
-068484e8da93084a,Domingos Soares de Oliveira aborda contrato com a NOS e o empréstimo obrigacionista,ojogo,1,positive,,0,0.48275842658050816,falso_negativo
-08cefcfd80c551d4,Sobrinho pede demissão de Bruno de Carvalho por colocar em risco os activos do Sporting - desporto -,negocios,1,positive,,0,0.489783674099759,falso_negativo
-69282acc2a2b69e2,Assembleia de obrigacionistas da FC Porto SAD adiada para Junho | FC Porto | PÚBLICO,publico,1,positive,,0,0.49311083067218137,falso_negativo
+08da2359cc97a79b,Centeno: Não há nenhum euro dos contribuintes a ser usado na injeção no Novo Banco - Banca & Finança,negocios,0,hard_negative,,1,0.6094909572027849,falso_positivo
+eb1ee7031dbf41e7,FC Porto voltou aos lucros na última época | FC Porto | PÚBLICO,publico,1,positive,,0,0.30631605813022683,falso_negativo
+658a7eb515e3f43f,Benfica SAD anuncia transferência do Estádio da Luz e BTV para o clube,ojogo,1,positive,,0,0.32904361759747397,falso_negativo
+0b03e77d9532681c,A BOLA - SAD com lucro recorde e capital negativo (Sporting),abola,1,positive,,0,0.4074741813777506,falso_negativo
