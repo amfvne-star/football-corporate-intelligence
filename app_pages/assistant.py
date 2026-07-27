@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 
 from lib.data import load_corpus
-from lib.i18n import get_lang, t
+from lib.i18n import ASSISTANT_SUGGESTED_QUESTIONS, get_lang, t
 from lib.rag import NO_CONTEXT_TOKEN, answer
 
 st.title(t("assistant.title"))
@@ -35,13 +35,22 @@ def _render_sources(sources: list[dict]) -> None:
                 st.markdown(f"[{source['url']}]({source['url']})")
 
 
+suggested_question = None
+if not st.session_state["assistant_messages"]:
+    st.caption(t("assistant.suggestions_label"))
+    suggestions = ASSISTANT_SUGGESTED_QUESTIONS.get(get_lang(), ASSISTANT_SUGGESTED_QUESTIONS["en"])
+    with st.container(horizontal=True):
+        for suggestion in suggestions:
+            if st.button(suggestion, key=f"assistant_suggestion_{suggestion}"):
+                suggested_question = suggestion
+
 for message in st.session_state["assistant_messages"]:
     with st.chat_message(message["role"]):
         st.write(message["content"])
         if message.get("sources"):
             _render_sources(message["sources"])
 
-question = st.chat_input(t("assistant.input_placeholder"))
+question = st.chat_input(t("assistant.input_placeholder")) or suggested_question
 
 if question:
     st.session_state["assistant_messages"].append({"role": "user", "content": question})

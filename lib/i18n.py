@@ -375,6 +375,7 @@ palavras-chave em arquivos não estruturados.""",
         "en": "No corpus loaded — nothing to answer questions about yet.",
         "pt": "Nenhum corpus carregado — ainda não há dados sobre os quais responder.",
     },
+    "assistant.suggestions_label": {"en": "Try asking:", "pt": "Experimenta perguntar:"},
     "assistant.input_placeholder": {
         "en": "Ask about a club, a bond issuance, a financing event...",
         "pt": "Pergunta sobre um clube, uma emissão de obrigações, um evento de financiamento...",
@@ -590,6 +591,28 @@ SENTIMENT_LABELS: dict[str, dict[str, str]] = {
     "positive": {"en": "Positive", "pt": "Positivo"},
     "neutral": {"en": "Neutral", "pt": "Neutro"},
     "negative": {"en": "Negative", "pt": "Negativo"},
+}
+
+# Curated starter questions for the assistant page, phrased with the same
+# vocabulary as EVENT_CATEGORY_PATTERNS (lib/nlp.py) so TF-IDF retrieval
+# reliably finds a good match — one per club per event category.
+ASSISTANT_SUGGESTED_QUESTIONS: dict[str, list[str]] = {
+    "en": [
+        "What bonds did Sporting SAD issue?",
+        "What was the amount of Benfica SAD's bond issuance?",
+        "How did FC Porto SAD finance its bank debt?",
+        "Was there a capital increase at Benfica SAD?",
+        "Did Sporting SAD refinance any debt?",
+        "What credit line did FC Porto SAD contract?",
+    ],
+    "pt": [
+        "Que obrigações emitiu o Sporting SAD?",
+        "Qual foi o valor da emissão obrigacionista do Benfica SAD?",
+        "Como é que o FC Porto SAD financiou a dívida junto da banca?",
+        "Houve algum aumento de capital no Benfica SAD?",
+        "O Sporting SAD fez algum refinanciamento de dívida?",
+        "Que linha de crédito contratou o FC Porto SAD?",
+    ],
 }
 
 
