@@ -56,8 +56,8 @@ STRINGS: dict[str, dict[str, str]] = {
         "pt": "Eventos de financiamento corporativo identificados em notícias e documentos sobre Benfica SAD, FC Porto SAD e Sporting SAD.",
     },
     "dashboard.warning_rules": {
-        "en": "The event category (`tipo_evento_previsto`) is assigned by lexical rules, not a trained classifier — see the Methodology page for details.",
-        "pt": "A categoria do evento (`tipo_evento_previsto`) é atribuída por regras lexicais, não por um classificador treinado — ver a página Metodologia para mais detalhes.",
+        "en": "The event category (`tipo_evento_final`) is assigned by lexical rules, overridden by human validation where available — not a trained classifier. See the Methodology page for details.",
+        "pt": "A categoria do evento (`tipo_evento_final`) é atribuída por regras lexicais, substituída por validação humana quando disponível — não é um classificador treinado. Ver a página Metodologia para mais detalhes.",
     },
     "dashboard.empty": {"en": "No records match the selected filters.", "pt": "Não existem registos para os filtros selecionados."},
     "dashboard.metric_documents": {"en": "Documents", "pt": "Documentos"},

@@ -44,17 +44,19 @@ def _optional_csv(path: Path) -> pd.DataFrame:
 
 @st.cache_data(show_spinner="Loading the corpus...")
 def load_corpus() -> pd.DataFrame:
-    """Classified corpus. The event category (`tipo_evento_previsto`) is
-    rule-based (regex over the relevant documents, notebook section 8) —
-    there is no trained multiclass classifier in this version of the
-    project, so there is no associated confidence score."""
+    """Classified corpus. The event category (`tipo_evento_final`) is
+    rule-based (regex over the relevant documents, notebook section 8),
+    overridden by a human-validated label where one exists — there is no
+    trained multiclass classifier in this version of the project, so there
+    is no associated confidence score. Falls back to `tipo_evento_previsto`
+    (rules only) for corpus files predating the human-override column."""
 
     if not CORPUS_BASE_FILE.exists():
         raise FileNotFoundError(
             "corpus_classificado.csv was not found in the project root."
         )
     df = pd.read_csv(CORPUS_BASE_FILE, low_memory=False)
-    df["event_type_final"] = df.get("tipo_evento_previsto")
+    df["event_type_final"] = df.get("tipo_evento_final", df.get("tipo_evento_previsto"))
 
     # NOTE: the human-readable event label is intentionally NOT computed
     # here. This DataFrame is cached with @st.cache_data independently of
