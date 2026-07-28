@@ -33,15 +33,15 @@ if df_filtered.empty:
     st.info(t("dashboard.empty"), icon=":material/filter_alt_off:")
     st.stop()
 
-total_documents = len(df_filtered)
 total_relevant = int(df_filtered["relevante_previsto"].sum()) if "relevante_previsto" in df_filtered else 0
 n_clubs = len({c for row in df_filtered["club_list"] for c in row})
 avg_probability = df_filtered["probabilidade_relevancia"].mean() if "probabilidade_relevancia" in df_filtered else None
+pct_of_corpus = total_relevant / len(corpus) if len(corpus) else None
 
 with st.container(horizontal=True):
     st.metric(t("dashboard.metric_total_collected"), format_thousands(len(corpus)), border=True)
-    st.metric(t("dashboard.metric_documents"), format_thousands(total_documents), border=True)
     st.metric(t("dashboard.metric_relevant"), format_thousands(total_relevant), border=True)
+    st.metric(t("dashboard.metric_pct_of_corpus"), format_percentage(pct_of_corpus), border=True)
     st.metric(t("dashboard.metric_clubs"), n_clubs, border=True)
     st.metric(t("dashboard.metric_avg_probability"), format_percentage(avg_probability), border=True)
 

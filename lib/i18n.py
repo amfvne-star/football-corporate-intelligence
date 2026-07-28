@@ -62,7 +62,7 @@ STRINGS: dict[str, dict[str, str]] = {
     },
     "dashboard.empty": {"en": "No records match the selected filters.", "pt": "Não existem registos para os filtros selecionados."},
     "dashboard.metric_total_collected": {"en": "Total collected", "pt": "Total recolhido"},
-    "dashboard.metric_documents": {"en": "Documents (filtered)", "pt": "Documentos (filtrados)"},
+    "dashboard.metric_pct_of_corpus": {"en": "% of corpus", "pt": "% do corpus"},
     "dashboard.metric_relevant": {"en": "Relevant events", "pt": "Eventos relevantes"},
     "dashboard.metric_clubs": {"en": "Clubs identified", "pt": "Clubes identificados"},
     "dashboard.metric_avg_probability": {"en": "Average relevance probability", "pt": "Probabilidade média de relevância"},
