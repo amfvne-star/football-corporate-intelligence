@@ -73,4 +73,5 @@ def add_period_annotations(fig, covid_label: str):
         annotation_text=covid_label, annotation_position="top left",
         annotation_font_size=11, annotation_font_color=MUTED,
     )
+    fig.update_xaxes(dtick=1, tickformat="d")
     return fig
