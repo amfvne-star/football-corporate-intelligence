@@ -569,6 +569,12 @@ relação com cada pergunta.""",
         "en": "Copy the files produced by notebook section 10 (`corpus_classificado.csv`, `modelo_relevancia.joblib`, the `resultados/` folder) into this project's root to unlock the corresponding sections.",
         "pt": "Copia os ficheiros produzidos pela secção 10 do notebook (`corpus_classificado.csv`, `modelo_relevancia.joblib`, a pasta `resultados/`) para a raiz deste projeto para desbloquear as secções correspondentes.",
     },
+    "meth.notebook_header": {"en": "Full notebook", "pt": "Notebook completo"},
+    "meth.notebook_body": {
+        "en": "Download the Jupyter notebook with the full NLP pipeline used to produce the data behind this app — collection, annotation, classifier training, and extraction.",
+        "pt": "Descarrega o notebook Jupyter com o pipeline de NLP completo usado para produzir os dados por trás desta app — recolha, anotação, treino do classificador e extração.",
+    },
+    "meth.notebook_download_label": {"en": "Download notebook (.ipynb)", "pt": "Descarregar notebook (.ipynb)"},
     "meth.limitations_header": {"en": "Limitations", "pt": "Limitações"},
     "meth.logo_credit": {
         "en": "Club crests and the Porto Business School logo are sourced from Wikipedia / Wikimedia Commons and remain the trademarks of their respective owners; used here only to identify the clubs and institution for this non-commercial academic prototype.",
