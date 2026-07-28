@@ -76,6 +76,7 @@ with tab_q2:
             fig = px.bar(q2_type, barmode="stack", color_discrete_sequence=SECONDARY_SEQUENCE)
             fig.update_layout(xaxis_title=t("rq.axis_year"), yaxis_title=t("rq.axis_num_events"), legend_title=t("rq.legend_event_subtype"))
             st.plotly_chart(fig, width="stretch")
+            st.caption(t("rq.q2_category_note"))
 
     st.caption(t("rq.q2_caption"))
 

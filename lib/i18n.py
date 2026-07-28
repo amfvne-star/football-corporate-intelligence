@@ -160,16 +160,20 @@ STRINGS: dict[str, dict[str, str]] = {
         "pt": "Q2 · Como se distribuem os documentos relacionados com financiamento ao longo do tempo?",
     },
     "rq.q2_body": {
-        "en": "How are the relevant documents distributed between 2019 and 2025, and in which years are greater concentrations observed?",
-        "pt": "Como se distribuem os documentos relevantes entre 2019 e 2025, e em que anos se observam maiores concentrações?",
+        "en": "How are the relevant documents distributed between 2019 and 2020, and in which years are greater concentrations observed?",
+        "pt": "Como se distribuem os documentos relevantes entre 2019 e 2020, e em que anos se observam maiores concentrações?",
     },
     "rq.q2_missing_club": {"en": "`q2_documentos_por_ano_clube.csv` not found.", "pt": "`q2_documentos_por_ano_clube.csv` não encontrado."},
     "rq.q2_missing_type": {"en": "`q2_documentos_por_ano_categoria.csv` not found.", "pt": "`q2_documentos_por_ano_categoria.csv` não encontrado."},
     "rq.axis_year": {"en": "Year", "pt": "Ano"},
     "rq.legend_club": {"en": "Club", "pt": "Clube"},
+    "rq.q2_category_note": {
+        "en": "This chart excludes documents classified as \"other/unclear\" or \"multiple/ambiguous\", so its totals are lower than the by-club chart and the unique document counts.",
+        "pt": "Este gráfico exclui os documentos classificados como \"outro/pouco claro\" ou \"múltiplo/ambíguo\", por isso os totais são inferiores aos do gráfico por clube e à contagem de documentos únicos.",
+    },
     "rq.q2_caption": {
-        "en": "The analysis is restricted to 2019–2025 (2026 excluded as incomplete). Years above the mean plus one standard deviation are annotated automatically below — read them against known seasons, transfer windows, or the COVID-19 period rather than as proof of causation.",
-        "pt": "A análise está restrita a 2019–2025 (2026 excluído por estar incompleto). Os anos acima da média mais um desvio-padrão são assinalados automaticamente abaixo — interpreta-os à luz de épocas, janelas de transferências, ou do período COVID-19, e não como prova de causalidade.",
+        "en": "The analysis is restricted to 2019–2020 (the study's closed collection window). Years above the mean plus one standard deviation are annotated automatically below — read them against known seasons, transfer windows, or the COVID-19 period rather than as proof of causation.",
+        "pt": "A análise está restrita a 2019–2020 (a janela de recolha fechada do estudo). Os anos acima da média mais um desvio-padrão são assinalados automaticamente abaixo — interpreta-os à luz de épocas, janelas de transferências, ou do período COVID-19, e não como prova de causalidade.",
     },
     "rq.q3_header": {
         "en": "Q3 · How much does archival coverage vary between clubs, sources, and years?",
