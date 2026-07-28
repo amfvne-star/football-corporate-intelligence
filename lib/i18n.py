@@ -62,10 +62,30 @@ STRINGS: dict[str, dict[str, str]] = {
     },
     "dashboard.empty": {"en": "No records match the selected filters.", "pt": "Não existem registos para os filtros selecionados."},
     "dashboard.metric_total_collected": {"en": "Total collected", "pt": "Total recolhido"},
+    "dashboard.metric_total_collected_help": {
+        "en": "Fixed: every document collected from Arquivo.pt, regardless of the sidebar filters.",
+        "pt": "Fixo: todos os documentos recolhidos do Arquivo.pt, independentemente dos filtros da barra lateral.",
+    },
     "dashboard.metric_pct_of_corpus": {"en": "% of corpus", "pt": "% do corpus"},
+    "dashboard.metric_pct_of_corpus_help": {
+        "en": "Relevant events ÷ total collected. Reacts to the sidebar filters.",
+        "pt": "Eventos relevantes a dividir pelo total recolhido. Reage aos filtros da barra lateral.",
+    },
     "dashboard.metric_relevant": {"en": "Relevant events", "pt": "Eventos relevantes"},
-    "dashboard.metric_clubs": {"en": "Clubs identified", "pt": "Clubes identificados"},
+    "dashboard.metric_relevant_help": {
+        "en": "Documents matching the current sidebar filters that were flagged as relevant (by the model or human review).",
+        "pt": "Documentos que cumprem os filtros atuais da barra lateral e foram marcados como relevantes (pelo modelo ou por revisão humana).",
+    },
+    "dashboard.metric_dedup_rate": {"en": "Duplication rate", "pt": "Taxa de duplicação"},
+    "dashboard.metric_dedup_rate_help": {
+        "en": "Fixed: share of raw archive captures collapsed into a single article during deduplication (1 minus unique articles divided by total captures, from `n_capturas`). Not affected by the sidebar filters.",
+        "pt": "Fixo: proporção de capturas brutas do arquivo que foram fundidas num único artigo durante a deduplicação (1 menos artigos únicos a dividir pelo total de capturas, a partir de `n_capturas`). Não é afetado pelos filtros da barra lateral.",
+    },
     "dashboard.metric_avg_probability": {"en": "Average relevance probability", "pt": "Probabilidade média de relevância"},
+    "dashboard.metric_avg_probability_help": {
+        "en": "Average model confidence that a document is relevant, across the currently filtered documents. Reacts to the sidebar filters.",
+        "pt": "Confiança média do modelo de que um documento é relevante, entre os documentos atualmente filtrados. Reage aos filtros da barra lateral.",
+    },
     "dashboard.section_events_by_type": {"en": "Events by type", "pt": "Eventos por tipo"},
     "dashboard.section_docs_by_source": {"en": "Documents by source", "pt": "Documentos por fonte"},
     "dashboard.section_time_evolution": {"en": "Time evolution", "pt": "Evolução temporal"},
