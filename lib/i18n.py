@@ -40,6 +40,7 @@ STRINGS: dict[str, dict[str, str]] = {
     "filters.relevant_only": {"en": "Show relevant events only", "pt": "Mostrar apenas eventos relevantes"},
     "filters.club": {"en": "Club", "pt": "Clube"},
     "filters.year": {"en": "Year", "pt": "Ano"},
+    "filters.year_unknown": {"en": "Unknown date", "pt": "Data desconhecida"},
     "filters.event_type": {"en": "Event type", "pt": "Tipo de evento"},
     "filters.source": {"en": "Source", "pt": "Fonte"},
     "filters.min_probability": {"en": "Minimum relevance probability", "pt": "Probabilidade mínima de relevância"},
