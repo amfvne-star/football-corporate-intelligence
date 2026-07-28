@@ -13,6 +13,17 @@ st.set_page_config(
 )
 
 st.logo(PBS_LOGO_URL, size="large")
+st.markdown(
+    """
+    <style>
+    [data-testid="stLogo"] {
+        height: 4rem;
+        max-height: none;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 
 with st.sidebar:
     st.selectbox(
