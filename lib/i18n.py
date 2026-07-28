@@ -56,10 +56,6 @@ STRINGS: dict[str, dict[str, str]] = {
         "en": "Corporate financing events identified in news and documents about Benfica SAD, FC Porto SAD, and Sporting SAD.",
         "pt": "Eventos de financiamento corporativo identificados em notícias e documentos sobre Benfica SAD, FC Porto SAD e Sporting SAD.",
     },
-    "dashboard.warning_rules": {
-        "en": "The event category (`tipo_evento_final`) is assigned by lexical rules, overridden by human validation where available — not a trained classifier. See the Methodology page for details.",
-        "pt": "A categoria do evento (`tipo_evento_final`) é atribuída por regras lexicais, substituída por validação humana quando disponível — não é um classificador treinado. Ver a página Metodologia para mais detalhes.",
-    },
     "dashboard.empty": {"en": "No records match the selected filters.", "pt": "Não existem registos para os filtros selecionados."},
     "dashboard.metric_total_collected": {"en": "Total collected", "pt": "Total recolhido"},
     "dashboard.metric_total_collected_help": {
@@ -103,9 +99,18 @@ STRINGS: dict[str, dict[str, str]] = {
         "en": "Not enough valid publication dates for this set of filters.",
         "pt": "Não existem datas de publicação válidas suficientes para este conjunto de filtros.",
     },
+    "dashboard.caption_excluded_no_date": {
+        "en": "{n} document(s) excluded from this chart — missing publication date.",
+        "pt": "{n} documento(s) excluído(s) deste gráfico — sem data de publicação.",
+    },
     "dashboard.caption_no_probabilities": {
         "en": "No probabilities available for this set of filters.",
         "pt": "Sem probabilidades disponíveis para este conjunto de filtros.",
+    },
+    "dashboard.threshold_annotation": {"en": "Current filter: {value}", "pt": "Filtro atual: {value}"},
+    "dashboard.caption_probability_distribution_full_corpus": {
+        "en": "Shows the full corpus (not affected by the sidebar filters), so you can see where the current \"Minimum relevance probability\" threshold falls relative to the whole distribution.",
+        "pt": "Mostra o corpus completo (não é afetado pelos filtros da barra lateral), para veres onde cai o limiar atual de \"Probabilidade mínima de relevância\" em relação à distribuição total.",
     },
     "dashboard.caption_no_clubs": {
         "en": "No clubs identified for this set of filters.",

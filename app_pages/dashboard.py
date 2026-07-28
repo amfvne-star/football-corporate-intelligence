@@ -25,8 +25,6 @@ except FileNotFoundError:
     st.error(t("dashboard.error_missing_corpus"), icon=":material/error:")
     st.stop()
 
-st.info(t("dashboard.warning_rules"), icon=":material/info:")
-
 df_filtered = sidebar_filters(corpus)
 
 if df_filtered.empty:
@@ -158,13 +156,24 @@ with col_right2:
             fig.update_layout(xaxis_title=t("dashboard.axis_date"), yaxis_title=t("dashboard.axis_num_documents"))
             st.plotly_chart(fig, width="stretch")
 
+        excluded_no_date = len(df_filtered) - len(time_data)
+        if excluded_no_date > 0:
+            st.caption(t("dashboard.caption_excluded_no_date", n=excluded_no_date))
+
 with st.expander(t("dashboard.section_probability_distribution"), icon=":material/model_training:"):
-    if "probabilidade_relevancia" in df_filtered and df_filtered["probabilidade_relevancia"].notna().any():
+    if "probabilidade_relevancia" in corpus and corpus["probabilidade_relevancia"].notna().any():
+        threshold = st.session_state.get("filter_min_probability", 0.5)
         fig = px.histogram(
-            df_filtered, x="probabilidade_relevancia", nbins=20,
+            corpus, x="probabilidade_relevancia", nbins=40, range_x=[0, 1],
             color_discrete_sequence=[SINGLE_SERIES_COLOR],
+        )
+        fig.add_vline(
+            x=threshold, line_dash="dash", line_color="crimson",
+            annotation_text=t("dashboard.threshold_annotation", value=format_percentage(threshold)),
+            annotation_position="top",
         )
         fig.update_layout(xaxis_title=t("dashboard.axis_relevance_probability"), yaxis_title=t("dashboard.axis_num_documents"))
         st.plotly_chart(fig, width="stretch")
+        st.caption(t("dashboard.caption_probability_distribution_full_corpus"))
     else:
         st.caption(t("dashboard.caption_no_probabilities"))
