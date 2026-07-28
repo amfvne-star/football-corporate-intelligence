@@ -566,8 +566,8 @@ relação com cada pergunta.""",
     "meth.results_available": {"en": "Available", "pt": "Disponíveis"},
     "meth.results_not_loaded": {"en": "Not loaded", "pt": "Não carregados"},
     "meth.caption_copy_files": {
-        "en": "Copy the files produced by notebook section 10 (`corpus_classificado.csv`, `modelo_relevancia.joblib`, the `resultados/` folder) into this project's root to unlock the corresponding sections.",
-        "pt": "Copia os ficheiros produzidos pela secção 10 do notebook (`corpus_classificado.csv`, `modelo_relevancia.joblib`, a pasta `resultados/`) para a raiz deste projeto para desbloquear as secções correspondentes.",
+        "en": "Copy the files produced by the notebook (`corpus_classificado.csv` and `modelo_relevancia.joblib` from section 7.10, the `resultados/` folder from section 10) into this project's root to unlock the corresponding sections.",
+        "pt": "Copia os ficheiros produzidos pelo notebook (`corpus_classificado.csv` e `modelo_relevancia.joblib` da secção 7.10, a pasta `resultados/` da secção 10) para a raiz deste projeto para desbloquear as secções correspondentes.",
     },
     "meth.notebook_header": {"en": "Full notebook", "pt": "Notebook completo"},
     "meth.notebook_body": {
